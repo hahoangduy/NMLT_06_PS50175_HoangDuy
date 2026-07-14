@@ -26,5 +26,6 @@ int main() {
     printf("Ho va Ten: %s\n", hoten);
     printf("Diem trung binh: %.1f\n", diemTB);
 
+    
     return 0;
 }
