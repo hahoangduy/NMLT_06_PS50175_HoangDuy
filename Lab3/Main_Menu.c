@@ -5,15 +5,15 @@ int main() {
     int choice;
     do {
         printf("+-------------------------------+\n");
-        printf("|  MENU CHUONG TRINH LAB 3      |\n");
+        printf("|    MENU CHUONG TRINH LAB 3    |\n");
         printf("+-------------------------------+\n");
         printf("1. Chuc nang tinh hoc luc sinh vien \n");
         printf("2. Chuc nang giai phuong trinh bac hai \n");
         printf("3. Chuc nang tinh tien dien tieu thu hang thang \n");
         printf("4. Thoat chuong trinh \n");
         printf("Moi chon chuc nang: ");
-        printf("\n");
         scanf("%d", &choice);
+        printf("\n");
 
         switch(choice) {
             case 1:
@@ -52,6 +52,8 @@ int main() {
                 printf("Nhap he so c: ");
                 scanf("%d", &c);
 
+                printf("\n");
+
                 if(a == 0) {
                     if(b == 0) {
                         if(c == 0) {
@@ -85,6 +87,8 @@ int main() {
                 printf("Nhap so dien tieu thu trong thang: ");
                 scanf("%d", &soDien);
 
+                printf("\n");
+
                 if(soDien < 0) {
                     printf("So dien tieu thu khong hop le \n");
                 } else {
@@ -102,7 +106,6 @@ int main() {
                     } else {
                         tienDien = 50 * 1.678 + 50 * 1.734 + 100 * 2.014 + 100 * 2.536 + 100 * 2.834 + (soDien - 400) * 2.927;
                     }
-                    printf("\n");
                     printf("So tien dien phai tra: %.2f VND \n", tienDien);
                     printf("\n");
                 }
