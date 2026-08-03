@@ -51,6 +51,24 @@ void sapXepGiamDan(int a[], int n) {
     }
 }
 
+void nhapPhanTuMang2Chieu(int row, int col, int a[row][col]) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("Nhap vao phan tu thu a[%d][%d]: ", i+1, j+1);
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+
+void maTranBinhPhuong(int row, int col, int a[row][col]) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("%3d \t", a[i][j] * a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 
 int main() {
     int choice;
@@ -104,6 +122,17 @@ int main() {
                 for (int i = 0; i < n; i++) {
                     printf("a[%d] = %d \n", i, a[i]);
                 }
+                break;
+            }
+            case 4: {
+                int row, col;
+                printf("Nhap vao so hang cua mang 2 chieu a: ");
+                scanf("%d", &row);
+                printf("Nhap vao so cot cua mang 2 chieu a: ");
+                scanf("%d", &col);
+                int a[row][col];
+                nhapPhanTuMang2Chieu(row, col, a);
+                maTranBinhPhuong(row, col, a);
                 break;
             }
         }
