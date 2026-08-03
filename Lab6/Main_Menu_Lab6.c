@@ -25,6 +25,21 @@ void tinhTrungBinhCong(int a[], int n) {
     printf("Trung binh tong cua cac so chia het cho 3 va 5 la: %.2f", trungBinh);
 }
 
+void timMaxMin(int a[], int n) {
+    int max = a[0];
+    int min = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    printf("Max cua mang a la: %d, min cua mang a la: %d", max, min);
+}
+
+
 int main() {
     int choice;
     do {
@@ -51,6 +66,15 @@ int main() {
                 int a[n];
                 nhapPhanTu(a, n);
                 tinhTrungBinhCong(a, n);
+                break;
+            }
+            case 2: {
+                int n;
+                printf("Nhap vao so luong phan tu cua mang a: ");
+                scanf("%d", &n);
+                int a[n];
+                nhapPhanTu(a, n);
+                timMaxMin(a, n);
                 break;
             }
         }
