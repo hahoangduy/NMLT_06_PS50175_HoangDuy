@@ -69,6 +69,15 @@ void maTranBinhPhuong(int row, int col, int a[row][col]) {
     }
 }
 
+ void xuatSoLeMaTran(int row, int col, int a[row][col]) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            if (a[i][j] % 2 != 0) {
+                printf("Phan tu so le tai a[%d][%d]: %d \n", i+1, j+1, a[i][j]);
+            }
+        }
+    }
+ }
 
 int main() {
     int choice;
@@ -133,6 +142,25 @@ int main() {
                 int a[row][col];
                 nhapPhanTuMang2Chieu(row, col, a);
                 maTranBinhPhuong(row, col, a);
+                break;
+            }
+            case 5: {
+                int row, col;
+                printf("Nhap vao so hang cua mang 2 chieu a: ");
+                scanf("%d", &row);
+                printf("Nhap vao so cot cua mang 2 chieu a: ");
+                scanf("%d", &col);
+                int a[row][col];
+                nhapPhanTuMang2Chieu(row, col, a);
+                xuatSoLeMaTran(row, col, a);
+                break;
+            }
+            case 6: {
+                printf("Dang thoat chuong trinh! \n");
+                break;
+            }
+            default: {
+                printf("Khong co chuc nang nay, moi chon lai! \n");
                 break;
             }
         }
