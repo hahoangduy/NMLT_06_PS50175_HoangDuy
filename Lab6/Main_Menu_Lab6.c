@@ -1,5 +1,30 @@
 #include <stdio.h>
 
+void nhapPhanTu(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Nhap vao phan tu thu %d: ", i+1);
+        scanf("%d", &a[i]);
+    }
+}
+
+void tinhTrungBinhCong(int a[], int n) {
+    float trungBinh = 0;
+    int count = 0;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 3 == 0 && a[i] % 5 == 0) {
+            sum += a[i];
+            count++;
+        }
+    }
+    if (count == 0) {
+        printf("Khong co so nao chia het cho 3 va 5! \n");
+        return;
+    }
+    trungBinh = (float) sum / count;
+    printf("Trung binh tong cua cac so chia het cho 3 va 5 la: %.2f", trungBinh);
+}
+
 int main() {
     int choice;
     do {
@@ -18,5 +43,16 @@ int main() {
         scanf("%d", &choice);
         printf("\n");
         
+        switch(choice) {
+            case 1: {
+                int n;
+                printf("Nhap vao so luong phan tu cua mang a: ");
+                scanf("%d", &n);
+                int a[n];
+                nhapPhanTu(a, n);
+                tinhTrungBinhCong(a, n);
+                break;
+            }
+        }
     }while(choice != 6);
 }
