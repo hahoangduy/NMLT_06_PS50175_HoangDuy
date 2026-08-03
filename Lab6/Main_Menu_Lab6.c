@@ -39,6 +39,18 @@ void timMaxMin(int a[], int n) {
     printf("Max cua mang a la: %d, min cua mang a la: %d", max, min);
 }
 
+void sapXepGiamDan(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        for(int j = 0; j < n - i - 1; j++) {
+            if (a[j] < a[j+1]) {
+                int temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+        }
+    }
+}
+
 
 int main() {
     int choice;
@@ -75,6 +87,23 @@ int main() {
                 int a[n];
                 nhapPhanTu(a, n);
                 timMaxMin(a, n);
+                break;
+            }
+            case 3: {
+                int n;
+                printf("Nhap vao so luong phan tu cua mang a: ");
+                scanf("%d", &n);
+                int a[n];
+                nhapPhanTu(a, n);
+                printf("Mang truoc khi sap xep: \n");
+                for (int i = 0; i < n; i++) {
+                    printf("a[%d] = %d \n", i, a[i]);
+                }
+                sapXepGiamDan(a, n);
+                printf("Mang sau khi sap xep: \n");
+                for (int i = 0; i < n; i++) {
+                    printf("a[%d] = %d \n", i, a[i]);
+                }
                 break;
             }
         }
