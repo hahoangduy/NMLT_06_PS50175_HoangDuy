@@ -17,5 +17,6 @@ int main() {
         printf("Xin moi chon chuc nang(1-6): ");
         scanf("%d", &choice);
         printf("\n");
+        
     }while(choice != 6);
 }
