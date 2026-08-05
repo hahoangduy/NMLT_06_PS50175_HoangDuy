@@ -15,13 +15,13 @@ int main (){
     gets(ngheNghiep);
 
      for(int i=0; i<strlen(hoTen2);i++){
-        printf("%C",hoTen[i]);
+        printf("%c",hoTen[i]);
     }
 
     printf("\n\n");
 
     for(int i=0; i<strlen(ngheNghiep);i++){
-        printf("%C",ngheNghiep[i]);
+        printf("%c",ngheNghiep[i]);
     }
 
     return 0;
