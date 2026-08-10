@@ -16,6 +16,14 @@ void demNguyenAmPhuAm(char str[50]) {
     printf("Chuoi cua ban co %d chu cai la nguyen am va %d chu cai la phu am \n", demNA, demPA);
 }
 
+void kiemTraDangNhap(char user[], char pass[]) {
+    char userSys[] = "admin";
+    char passSys[] = "123456";
+    if (strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0) 
+        printf("Dang nhap thanh cong! \n");
+    else 
+        printf("Username hoac Password khong chinh xac! \n");
+}
 int main() {
     int choice;
     do {
@@ -41,6 +49,20 @@ int main() {
                 fgets(str, sizeof(str), stdin);
                 demNguyenAmPhuAm(str);
                 break;
+            case 2:
+                char user[50];
+                char pass[50];
+
+                printf("Nhap vao ten user: ");
+                fgets(user, sizeof(user), stdin);
+                printf("Nhap vao mat khau: ");
+                fgets(pass, sizeof(pass), stdin);
+                user[strcspn(user, "\n")] = '\0';
+                pass[strcspn(pass, "\n")] = '\0';
+
+                kiemTraDangNhap(user, pass);
+                break;
+
         }
     }while(choice != 5);
 
