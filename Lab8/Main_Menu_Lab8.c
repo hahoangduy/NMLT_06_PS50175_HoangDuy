@@ -70,6 +70,20 @@ void timKiemSinhVien(struct SinhVien mangSV[], int *n) {
         printf("Khong tim thay sinh vien co MSSV nay! \n");
 }
 
+void xuatHocBong(struct SinhVien mangSV[], int *n) {
+    int count = 0;
+    printf("Danh sach sinh vien nhan hoc bong: \n");
+    for (int i = 0; i < *n; i++) {
+        if (mangSV[i].diemTB >= 8.0) {
+            printf("MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", mangSV[i].mssv, mangSV[i].tenSV, mangSV[i].nganhHoc, mangSV[i].diemTB);
+            count++;
+        }
+    }
+    if (count == 0) {
+        printf("Khong co sinh vien nao dat hoc bong. \n");
+    }
+}
+
 int main() {
     int choice;
     do {
@@ -102,6 +116,9 @@ int main() {
                 break;
             case 3:
                 timKiemSinhVien(mangSV, &n);
+                break;
+            case 4:
+                xuatHocBong(mangSV, &n);
                 break;
         }
     }while(choice != 5);
