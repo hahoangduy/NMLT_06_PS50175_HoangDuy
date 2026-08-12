@@ -34,22 +34,41 @@ void nhapXuatSV(struct SinhVien mangSV[], int *n) {
     }
 }
 
-void sapXepSinhVien(struct SinhVien mangSV1[], int *n1) {
-    for (int i = 0; i < *n1; i++) {
-        for (int j = 0; j < *n1-i-1; j++) {
-            if (mangSV1[j].diemTB > mangSV1[j+1].diemTB) {
-                struct SinhVien temp = mangSV1[j];
-                mangSV1[j] = mangSV1[j+1];
-                mangSV1[j+1] = temp;
+void sapXepSinhVien(struct SinhVien mangSV[], int *n) {
+    for (int i = 0; i < *n; i++) {
+        for (int j = 0; j < *n-i-1; j++) {
+            if (mangSV[j].diemTB > mangSV[j+1].diemTB) {
+                struct SinhVien temp = mangSV[j];
+                mangSV[j] = mangSV[j+1];
+                mangSV[j+1] = temp;
             }
         }
     }
-    printf("Danh sach sinh vien sau khi sap xep: \n");
-    for (int i = 0; i < *n1; i++) {
-        printf("Sinh vien thu %d: MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", i+1, mangSV1[i].mssv, mangSV1[i].tenSV, mangSV1[i].nganhHoc, mangSV1[i].diemTB);
+    printf("Danh sach sinh vien sau khi sap xep tang dan: \n");
+    for (int i = 0; i < *n; i++) {
+        printf("Sinh vien thu %d: MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", i+1, mangSV[i].mssv, mangSV[i].tenSV, mangSV[i].nganhHoc, mangSV[i].diemTB);
     }
 }
 
+void timKiemSinhVien(struct SinhVien mangSV[], int *n) {
+    char mssvTim[50];
+    int found;
+    printf("Nhap ma so sinh vien can tim: ");
+    fgets(mssvTim, sizeof(mssvTim), stdin);
+    mssvTim[strcspn(mssvTim, "\n")] = '\0';
+    for (int i = 0; i < *n; i++) {
+        if (strcmp(mangSV[i].mssv, mssvTim) == 0) {
+            printf("Tim thay sinh vien: MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", mangSV[i].mssv, mangSV[i].tenSV, mangSV[i].nganhHoc, mangSV[i].diemTB);
+            found = 1;
+            break;
+        }
+        else {
+            found = 0;
+        }
+    }
+    if (found == 0) 
+        printf("Khong tim thay sinh vien co MSSV nay! \n");
+}
 
 int main() {
     int choice;
@@ -66,25 +85,24 @@ int main() {
         printf("+-------------------------------+\n");
         printf("Xin moi chon chuc nang(1-5): ");
         scanf("%d", &choice);
+        getchar();
         printf("\n");
 
+        int n;
+        struct SinhVien mangSV[100];
         switch(choice) {
             case 1:
-                int n;
-                struct SinhVien mangSV[100];
                 printf("Nhap vao so luong sinh vien: ");
                 scanf("%d", &n);
                 getchar();
                 nhapXuatSV(mangSV, &n);
                 break;
             case 2:
-                int n1;
-                struct SinhVien mangSV1[100];
-                printf("Nhap vao so luong sinh vien: ");
-                scanf("%d", &n1);
-                getchar();
-                nhapXuatSV(mangSV1, &n1);
-                sapXepSinhVien(mangSV1, &n1);
+                sapXepSinhVien(mangSV, &n);
+                break;
+            case 3:
+                timKiemSinhVien(mangSV, &n);
+                break;
         }
     }while(choice != 5);
 
