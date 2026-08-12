@@ -33,6 +33,24 @@ void nhapXuatSV(struct SinhVien mangSV[], int *n) {
         printf("Sinh vien thu %d: MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", i+1, mangSV[i].mssv, mangSV[i].tenSV, mangSV[i].nganhHoc, mangSV[i].diemTB);
     }
 }
+
+void sapXepSinhVien(struct SinhVien mangSV1[], int *n1) {
+    for (int i = 0; i < *n1; i++) {
+        for (int j = 0; j < *n1-i-1; j++) {
+            if (mangSV1[j].diemTB > mangSV1[j+1].diemTB) {
+                struct SinhVien temp = mangSV1[j];
+                mangSV1[j] = mangSV1[j+1];
+                mangSV1[j+1] = temp;
+            }
+        }
+    }
+    printf("Danh sach sinh vien sau khi sap xep: \n");
+    for (int i = 0; i < *n1; i++) {
+        printf("Sinh vien thu %d: MSSV: %s | Ho ten: %s | Nganh hoc: %s | Diem TB: %.2f \n", i+1, mangSV1[i].mssv, mangSV1[i].tenSV, mangSV1[i].nganhHoc, mangSV1[i].diemTB);
+    }
+}
+
+
 int main() {
     int choice;
     do {
@@ -58,6 +76,15 @@ int main() {
                 scanf("%d", &n);
                 getchar();
                 nhapXuatSV(mangSV, &n);
+                break;
+            case 2:
+                int n1;
+                struct SinhVien mangSV1[100];
+                printf("Nhap vao so luong sinh vien: ");
+                scanf("%d", &n1);
+                getchar();
+                nhapXuatSV(mangSV1, &n1);
+                sapXepSinhVien(mangSV1, &n1);
         }
     }while(choice != 5);
 
