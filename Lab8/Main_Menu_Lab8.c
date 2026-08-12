@@ -120,6 +120,12 @@ int main() {
             case 4:
                 xuatHocBong(mangSV, &n);
                 break;
+            case 5:
+                printf("Dang thoat chuong trinh! \n");
+                break;
+            default:
+                printf("Khong co chuc nang nay. Xin moi chon lai! \n");
+                break;                
         }
     }while(choice != 5);
 
