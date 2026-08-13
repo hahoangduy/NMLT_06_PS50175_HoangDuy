@@ -117,6 +117,13 @@ int main() {
                 scanf("%d", &n);
                 getchar();
                 thapPhanSangNhiPhan(n);
+                break;
+            case 5:
+                printf("Dang thoat chuong trinh! \n");
+                break;
+            default:
+                printf("Khong co chuc nang nay. Moi chon lai! \n");
+                break;
         }
     }while(choice != 5);
 
